@@ -11,7 +11,20 @@ import SwiftUI
 struct Curve_VisualiserApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+						TimingCurveView()
+							.frame(width: 520, height: 600)
+							.onReceive(NotificationCenter.default.publisher(for: NSApplication.willUpdateNotification), perform: { _ in
+									windowSettings()
+							})
         }
     }
+	
+	func windowSettings() {
+		let appWindow = NSApplication.shared.windows[0]
+		appWindow.standardWindowButton(NSWindow.ButtonType.zoomButton)?.isEnabled = false
+		
+		appWindow.styleMask = [ .titled, .closable, .miniaturizable, .resizable]
+		appWindow.setFrameAutosaveName("Curve Visualiser")
+		appWindow.makeKeyAndOrderFront(nil)
+	}
 }
