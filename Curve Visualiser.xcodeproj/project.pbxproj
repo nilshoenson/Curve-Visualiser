@@ -20,6 +20,8 @@
 		CB8D803C27713DD600383B89 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D803B27713DD600383B89 /* Shapes.swift */; };
 		CB8D803E277141D000383B89 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D803D277141D000383B89 /* GridView.swift */; };
 		CB8D8040277148E500383B89 /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D803F277148E500383B89 /* AnimationView.swift */; };
+		CBE9F75C277293C00061919C /* CustomStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE9F75B277293C00061919C /* CustomStyles.swift */; };
+		CBE9F75E277293DA0061919C /* DurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE9F75D277293DA0061919C /* DurationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		CB8D803B27713DD600383B89 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		CB8D803D277141D000383B89 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		CB8D803F277148E500383B89 /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
+		CBE9F75B277293C00061919C /* CustomStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStyles.swift; sourceTree = "<group>"; };
+		CBE9F75D277293DA0061919C /* DurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 				CB72A2452772434F0029F8E9 /* SettingsView.swift */,
 				CB72A2472772467E0029F8E9 /* DropdownView.swift */,
 				CB72A249277256D40029F8E9 /* InputView.swift */,
+				CBE9F75D277293DA0061919C /* DurationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -108,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				CB8D803827712CD200383B89 /* Colors.swift */,
+				CBE9F75B277293C00061919C /* CustomStyles.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -186,9 +192,11 @@
 				CB8D803927712CD200383B89 /* Colors.swift in Sources */,
 				CB72A24427723EC80029F8E9 /* ContentView.swift in Sources */,
 				CB72A2462772434F0029F8E9 /* SettingsView.swift in Sources */,
+				CBE9F75C277293C00061919C /* CustomStyles.swift in Sources */,
 				CB8D803C27713DD600383B89 /* Shapes.swift in Sources */,
 				CB72A2482772467E0029F8E9 /* DropdownView.swift in Sources */,
 				CB8D8025277127D500383B89 /* Curve_VisualiserApp.swift in Sources */,
+				CBE9F75E277293DA0061919C /* DurationView.swift in Sources */,
 				CB8D8040277148E500383B89 /* AnimationView.swift in Sources */,
 				CB72A24A277256D40029F8E9 /* InputView.swift in Sources */,
 				CB8D8036277128ED00383B89 /* GeometryExtensions.swift in Sources */,

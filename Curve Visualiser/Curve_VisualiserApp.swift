@@ -25,6 +25,7 @@ struct Curve_VisualiserApp: App {
         WindowGroup {
 						TimingCurveView()
 							.frame(width: 464, height: 600)
+								.preferredColorScheme(.dark)
         }
     }
 }

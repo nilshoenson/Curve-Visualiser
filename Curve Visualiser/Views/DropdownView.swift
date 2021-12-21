@@ -8,29 +8,39 @@
 import SwiftUI
 
 struct DropdownView: View {
-	@State private var selectedItem: Int = 0
+	@State private var selectedItem: String = "Linear"
+	let curves = [
+		"Linear",
+		"Ease In",
+		"Ease Out",
+		"Ease In Out",
+		"Custom"
+	]
 			
 	var body: some View {
-		HStack(alignment: .center, spacing: 0) {
-			Text("Curve")
-				.font(.system(size: 12))
-				.fontWeight(.semibold)
-				.foregroundColor(Color.white)
-				.frame(width: 44.0, alignment: .leading)
+		HStack(alignment: .center, spacing: 2) {
+			HStack {
+				Spacer()
+				Text("Curve")
+					.font(.system(size: 12))
+					.fontWeight(.semibold)
+					.foregroundColor(Color.white)
+					.frame(maxWidth: .infinity, alignment: .trailing)
+			}
+			.frame(width: 60, height: 28)
 			
 			VStack {
 				Picker("", selection: $selectedItem) {
-					Text("Red").tag(0)
-					Text("Blue").tag(1)
-					Text("Green").tag(2)
+					ForEach(curves, id: \.self) {
+						Text($0)
+					}
 				}
-				.frame(width: 184)
+				.frame(width: 232)
 				.accentColor(Colors.primary)
 				.clipped() 
 			}
 		}
 		.controlSize(.large)
+		.textFieldStyle(.roundedBorder)
 	}
 }
-
-// MARK: - Style

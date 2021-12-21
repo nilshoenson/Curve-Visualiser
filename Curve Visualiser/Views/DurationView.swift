@@ -1,5 +1,5 @@
 //
-//  InputView.swift
+//  DurationView.swift
 //  Curve Visualiser
 //
 //  Created by Nils Hoenson on 21/12/2021.
@@ -7,11 +7,8 @@
 
 import SwiftUI
 
-struct InputView: View {
-	@State private var first: String = ""
-	@State private var second: String = ""
-	@State private var third: String = ""
-	@State private var fourth: String = ""
+struct DurationView: View {
+	@State private var duration: String = "1"
 	
 	let spacing: CGFloat = 10
 	
@@ -19,7 +16,7 @@ struct InputView: View {
 		HStack(alignment: .top, spacing: 12) {
 			HStack {
 				Spacer()
-				Text("Values")
+				Text("Duration")
 					.font(.system(size: 12))
 					.fontWeight(.semibold)
 					.foregroundColor(Color.white)
@@ -28,17 +25,11 @@ struct InputView: View {
 			.frame(width: 60, height: 28)
 			
 			VStack(spacing: spacing) {
-				HStack(spacing: spacing) {
-					TextField("0.17", text: $first)
-					TextField("0.67", text: $second)
-				}
-				HStack(spacing: spacing) {
-					TextField("0.83", text: $third)
-					TextField("1", text: $fourth)
-				}
+				TextField("Seconds", text: $duration)
 			}.frame(width: 224)
 		}
 		.textFieldStyle(CustomTextFieldStyle())
 		.controlSize(.large)
 	}
 }
+

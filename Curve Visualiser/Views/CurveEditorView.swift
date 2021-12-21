@@ -45,7 +45,6 @@ struct CurveEditorView: View {
 							.stroke(Colors.secondary, lineWidth: 2)
 				}
 				.aspectRatio(contentMode: .fit)
-				.preferredColorScheme(.dark)
 		}
 }
 
@@ -78,7 +77,7 @@ struct TimingCurveView: View {
 //									self.value = 1
 //							}
 //					}
-					DotView(gridWidth: 12, color: Colors.grid)
+					GridView(gridWidth: 12, color: Colors.grid)
 				}
 				.background(Colors.background)
 				
@@ -86,7 +85,7 @@ struct TimingCurveView: View {
 					SettingsView()
 				}
 				.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-				.padding(20)
+				.padding(24)
 				.overlay(Rectangle().frame(width: nil, height: 1, alignment: .top).foregroundColor(Colors.stroke), alignment: .top)
 				.background(Colors.darkGray)
 				.shadow(color: Colors.shadow, radius: 15, x: 0, y: -3)
