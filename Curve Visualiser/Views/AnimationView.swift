@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AnimationView: View {
-		@State var value: CGFloat = 0
+		var value: CGFloat
 	
     var body: some View {
 			ZStack(alignment: .center) {

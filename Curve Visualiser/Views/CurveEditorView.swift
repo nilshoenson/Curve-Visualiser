@@ -12,9 +12,11 @@ struct CurveEditorView: View {
 		// private let initialPoint0: CGSize = .init(width: 0, height: 0)
 		// private let initialPoint1: CGSize = .init(width: 1, height: 1)
 	
-		// cubic-bezier(.17,.67,.83,.67)
+		// cubic-bezier(.17,.67,.83,.33)
 		private let initialPoint0: CGSize = .init(width: 0.17, height: 0.33)
-		private let initialPoint1: CGSize = .init(width: 0.83, height: 0.33)
+		private let initialPoint1: CGSize = .init(width: 0.83, height: 0.67)
+	
+		// Axis indicator
 		private let initialLine0: CGSize = .init(width: 0, height: 1)
 		private let initialLine1: CGSize = .init(width: 1, height: 0)
 
@@ -84,23 +86,34 @@ struct TimingCurveView: View {
 		}
 
 		var body: some View {
-			ZStack(alignment: .top) {
-				VStack {
-						CurveEditorView(controlPoint1: $cp1, controlPoint2: $cp2)
-								.aspectRatio(contentMode: .fill)
-								.frame(width: 160, height: 160)
-								.padding(40)
-						AnimationView(value: value)
+			VStack(spacing: 0) {
+				ZStack(alignment: .top) {
+					VStack(spacing:0) {
+							CurveEditorView(controlPoint1: $cp1, controlPoint2: $cp2)
+									.aspectRatio(contentMode: .fill)
+									.frame(width: 160, height: 160)
+									.padding(40)
+							AnimationView(value: value)
+					}
+					.zIndex(1)
+					.onReceive(timer) { _ in
+							self.value = 0
+							withAnimation(self.animation) {
+									self.value = 1
+							}
+					}
+					DotView(gridWidth: 12, color: Colors.grid)
 				}
-				.zIndex(1)
-				.onReceive(timer) { _ in
-						self.value = 0
-						withAnimation(self.animation) {
-								self.value = 1
-						}
+				.background(Colors.background)
+				
+				HStack {
+					Text("Here come the controls")
 				}
-				DotView(gridWidth: 12, color: Colors.grid)
+				.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+				.padding(20)
+				.overlay(Rectangle().frame(width: nil, height: 1, alignment: .top).foregroundColor(Colors.stroke), alignment: .top)
+				.background(Colors.darkGray)
+				.shadow(color: Colors.shadow, radius: 15, x: 0, y: -3)
 			}
-			.background(Colors.background)
 		}
 }

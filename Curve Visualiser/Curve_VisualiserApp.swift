@@ -7,24 +7,24 @@
 
 import SwiftUI
 
+final class AppDelegate: NSObject, NSApplicationDelegate {
+		func applicationDidFinishLaunching(_ notification: Notification) {
+				if let window = NSApplication.shared.windows.first {
+					window.styleMask = [ .titled, .closable, .miniaturizable]
+					window.setFrameAutosaveName("Curve Visualiser")
+					window.makeKeyAndOrderFront(nil)
+					window.backgroundColor = NSColor.clear
+				}
+		}
+}
+
 @main
 struct Curve_VisualiserApp: App {
+		@NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
 						TimingCurveView()
-							.frame(width: 520, height: 600)
-							.onReceive(NotificationCenter.default.publisher(for: NSApplication.willUpdateNotification), perform: { _ in
-									windowSettings()
-							})
+							.frame(width: 480, height: 600)
         }
     }
-	
-	func windowSettings() {
-		let appWindow = NSApplication.shared.windows[0]
-		appWindow.standardWindowButton(NSWindow.ButtonType.zoomButton)?.isEnabled = false
-		
-		appWindow.styleMask = [ .titled, .closable, .miniaturizable, .resizable]
-		appWindow.setFrameAutosaveName("Curve Visualiser")
-		appWindow.makeKeyAndOrderFront(nil)
-	}
 }
