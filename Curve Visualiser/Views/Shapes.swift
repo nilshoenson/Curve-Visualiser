@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CurveShape: Shape {
-		let cp0, cp1: RelativePoint
+		let cp0, cp1: CGPoint
 		func path(in rect: CGRect) -> Path {
 				Path { p in
 						p.move(to: CGPoint(x: 0, y: rect.size.height))

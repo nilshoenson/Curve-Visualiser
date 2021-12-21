@@ -17,5 +17,5 @@ public class Colors {
 	static let stroke: Color = Color(red: 1.00, green: 1.00, blue: 1.00, opacity: 0.1)
 	static let shadow: Color = Color(red: 0, green: 0, blue: 0, opacity: 0.25)
 	static let background: Color = Color(red: 0.11, green: 0.11, blue: 0.11)
-	static let grid: Color = Color(red: 0.14, green: 0.14, blue: 0.14)
+	static let grid: Color = Color(red: 0.15, green: 0.15, blue: 0.15)
 }

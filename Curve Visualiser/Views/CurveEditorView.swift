@@ -8,39 +8,21 @@
 import SwiftUI
 
 struct CurveEditorView: View {
-		// cubic-bezier(0,1,1,0)
-		// private let initialPoint0: CGSize = .init(width: 0, height: 0)
-		// private let initialPoint1: CGSize = .init(width: 1, height: 1)
-	
+		// MARK: Shape values
+		// Curve
 		// cubic-bezier(.17,.67,.83,.33)
 		private let initialPoint0: CGSize = .init(width: 0.17, height: 0.33)
 		private let initialPoint1: CGSize = .init(width: 0.83, height: 0.67)
+
+		private var curveStart: CGPoint { (initialPoint0).toPoint }
+		private var curveEnd: CGPoint { (initialPoint1).toPoint }
 	
 		// Axis indicator
 		private let initialLine0: CGSize = .init(width: 0, height: 1)
 		private let initialLine1: CGSize = .init(width: 1, height: 0)
-
-		@State private var offsetPoint0: CGSize = .zero
-		@State private var offsetPoint1: CGSize = .zero
-
-		private var curvePoint0: RelativePoint {
-				(initialPoint0 + offsetPoint0).toPoint
-		}
-
-		private var curvePoint1: RelativePoint {
-				(initialPoint1 + offsetPoint1).toPoint
-		}
 	
-		private var line0: RelativePoint {
-			(initialLine0 + offsetPoint0).toPoint
-		}
-
-		private var line1: RelativePoint {
-			(initialLine1 + offsetPoint1).toPoint
-		}
-
-		@Binding var controlPoint1: RelativePoint
-		@Binding var controlPoint2: RelativePoint
+		private var bottomLeft: CGPoint { (initialLine0).toPoint }
+		private var topRight: CGPoint { (initialLine1).toPoint }
 
 		var body: some View {
 				return ZStack(alignment: .center) {
@@ -53,13 +35,13 @@ struct CurveEditorView: View {
 							)
 							.shadow(color: Colors.shadow, radius: 14, x: 0, y: 4)
 
-						CurveShape(cp0: self.curvePoint0, cp1: self.curvePoint1)
+						CurveShape(cp0: self.curveStart, cp1: self.curveEnd)
 							.stroke(Colors.primary, lineWidth: 4)
 							.frame(width: 116, height: 116)
 							.shadow(color: Colors.primary, radius: 10, x: 0, y: 0)
 							.zIndex(1)
 					
-						CurveShape(cp0: self.line0, cp1: self.line1)
+						CurveShape(cp0: self.bottomLeft, cp1: self.topRight)
 							.stroke(Colors.secondary, lineWidth: 2)
 				}
 				.aspectRatio(contentMode: .fit)
@@ -70,17 +52,11 @@ struct CurveEditorView: View {
 struct TimingCurveView: View {
 		@State var value: CGFloat = 0
 
-		@State var cp1: RelativePoint = .zero
-		@State var cp2: RelativePoint = .zero
-
 		let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
 		
 		var animation: Animation {
 				Animation.timingCurve(
-						Double(cp1.x),
-						Double(1 - cp1.y),
-						Double(cp2.x),
-						Double(1 - cp2.y),
+						0.17,0.67,0.83,0.33,
 						duration: 2
 				)
 		}
@@ -89,25 +65,25 @@ struct TimingCurveView: View {
 			VStack(spacing: 0) {
 				ZStack(alignment: .top) {
 					VStack(spacing:0) {
-							CurveEditorView(controlPoint1: $cp1, controlPoint2: $cp2)
+							CurveEditorView()
 									.aspectRatio(contentMode: .fill)
 									.frame(width: 160, height: 160)
 									.padding(40)
 							AnimationView(value: value)
 					}
 					.zIndex(1)
-					.onReceive(timer) { _ in
-							self.value = 0
-							withAnimation(self.animation) {
-									self.value = 1
-							}
-					}
+//					.onReceive(timer) { _ in
+//							self.value = 0
+//							withAnimation(self.animation) {
+//									self.value = 1
+//							}
+//					}
 					DotView(gridWidth: 12, color: Colors.grid)
 				}
 				.background(Colors.background)
 				
 				HStack {
-					Text("Here come the controls")
+					SettingsView()
 				}
 				.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
 				.padding(20)

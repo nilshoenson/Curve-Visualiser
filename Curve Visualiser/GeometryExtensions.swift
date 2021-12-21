@@ -9,7 +9,6 @@ import Foundation
 
 // Just for clarity of intention
 typealias AbsolutePoint = CGPoint
-typealias RelativePoint = CGPoint
 
 func * (lhs: CGSize, rhs: CGSize) -> CGSize {
 		.init(width: lhs.width * rhs.width, height: lhs.height * rhs.height)

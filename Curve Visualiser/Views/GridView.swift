@@ -48,7 +48,7 @@ struct DotView: View {
 									for index in 0...numberOfHorizontalGridLines {
 											let hOffset: CGFloat = CGFloat(index + 1) * self.gridWidth
 											path.move(to: CGPoint(x: vOffset, y: hOffset))
-										path.addArc(center: CGPoint(x: vOffset, y: hOffset), radius: 1, startAngle: .degrees(0), endAngle: .degrees(.pi * 2), clockwise: true)
+											path.addArc(center: CGPoint(x: vOffset, y: hOffset), radius: 1.25, startAngle: .degrees(0), endAngle: .degrees(.pi * 2), clockwise: true)
 									}
 							}
 						}

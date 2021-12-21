@@ -24,7 +24,7 @@ struct Curve_VisualiserApp: App {
     var body: some Scene {
         WindowGroup {
 						TimingCurveView()
-							.frame(width: 480, height: 600)
+							.frame(width: 464, height: 600)
         }
     }
 }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB72A24427723EC80029F8E9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB72A24327723EC80029F8E9 /* ContentView.swift */; };
+		CB72A2462772434F0029F8E9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB72A2452772434F0029F8E9 /* SettingsView.swift */; };
+		CB72A2482772467E0029F8E9 /* DropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB72A2472772467E0029F8E9 /* DropdownView.swift */; };
+		CB72A24A277256D40029F8E9 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB72A249277256D40029F8E9 /* InputView.swift */; };
 		CB8D8025277127D500383B89 /* Curve_VisualiserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D8024277127D500383B89 /* Curve_VisualiserApp.swift */; };
 		CB8D8029277127D700383B89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB8D8028277127D700383B89 /* Assets.xcassets */; };
 		CB8D802C277127D700383B89 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB8D802B277127D700383B89 /* Preview Assets.xcassets */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB72A24327723EC80029F8E9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CB72A2452772434F0029F8E9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		CB72A2472772467E0029F8E9 /* DropdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownView.swift; sourceTree = "<group>"; };
+		CB72A249277256D40029F8E9 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		CB8D8021277127D500383B89 /* Curve Visualiser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Curve Visualiser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8D8024277127D500383B89 /* Curve_VisualiserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curve_VisualiserApp.swift; sourceTree = "<group>"; };
 		CB8D8028277127D700383B89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,6 +96,10 @@
 				CB8D803B27713DD600383B89 /* Shapes.swift */,
 				CB8D803D277141D000383B89 /* GridView.swift */,
 				CB8D803F277148E500383B89 /* AnimationView.swift */,
+				CB72A24327723EC80029F8E9 /* ContentView.swift */,
+				CB72A2452772434F0029F8E9 /* SettingsView.swift */,
+				CB72A2472772467E0029F8E9 /* DropdownView.swift */,
+				CB72A249277256D40029F8E9 /* InputView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,9 +184,13 @@
 			files = (
 				CB8D8034277128C600383B89 /* CurveEditorView.swift in Sources */,
 				CB8D803927712CD200383B89 /* Colors.swift in Sources */,
+				CB72A24427723EC80029F8E9 /* ContentView.swift in Sources */,
+				CB72A2462772434F0029F8E9 /* SettingsView.swift in Sources */,
 				CB8D803C27713DD600383B89 /* Shapes.swift in Sources */,
+				CB72A2482772467E0029F8E9 /* DropdownView.swift in Sources */,
 				CB8D8025277127D500383B89 /* Curve_VisualiserApp.swift in Sources */,
 				CB8D8040277148E500383B89 /* AnimationView.swift in Sources */,
+				CB72A24A277256D40029F8E9 /* InputView.swift in Sources */,
 				CB8D8036277128ED00383B89 /* GeometryExtensions.swift in Sources */,
 				CB8D803E277141D000383B89 /* GridView.swift in Sources */,
 			);
