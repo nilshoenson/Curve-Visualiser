@@ -8,22 +8,9 @@
 import SwiftUI
 
 struct CurveEditorView: View {
+		@EnvironmentObject var infos: Infos
+		
 		// MARK: Shape values
-		// Curve
-		// cubic-bezier(.17,.67,.83,.33)
-		private let initialPoint0: CGSize = .init(width: 0.17, height: 0.33)
-		private let initialPoint1: CGSize = .init(width: 0.83, height: 0.67)
-
-		private var curveStart: CGPoint { (initialPoint0).toPoint }
-		private var curveEnd: CGPoint { (initialPoint1).toPoint }
-	
-		// Axis indicator
-		private let initialLine0: CGSize = .init(width: 0, height: 1)
-		private let initialLine1: CGSize = .init(width: 1, height: 0)
-	
-		private var bottomLeft: CGPoint { (initialLine0).toPoint }
-		private var topRight: CGPoint { (initialLine1).toPoint }
-
 		var body: some View {
 				return ZStack(alignment: .center) {
 						RoundedRectangle(cornerRadius: 6)
@@ -35,13 +22,23 @@ struct CurveEditorView: View {
 							)
 							.shadow(color: Colors.shadow, radius: 14, x: 0, y: 4)
 
-						CurveShape(cp0: self.curveStart, cp1: self.curveEnd)
+						CurveShape(
+							cp0:
+								CGPoint(x: infos.values.first, y: 1.0 - infos.values.second),
+							cp1:
+								CGPoint(x: infos.values.third, y: 1.0 - Double(infos.values.fourth))
+						)
 							.stroke(Colors.primary, lineWidth: 4)
 							.frame(width: 116, height: 116)
 							.shadow(color: Colors.primary, radius: 10, x: 0, y: 0)
 							.zIndex(1)
 					
-						CurveShape(cp0: self.bottomLeft, cp1: self.topRight)
+						CurveShape(
+							cp0:
+								CGPoint(x: 0, y: 1),
+							cp1:
+								CGPoint(x: 1, y: 0)
+						)
 							.stroke(Colors.secondary, lineWidth: 2)
 				}
 				.aspectRatio(contentMode: .fit)
@@ -50,14 +47,18 @@ struct CurveEditorView: View {
 
 struct TimingCurveView: View {
 		@State var value: CGFloat = 0
+		@StateObject var infos = Infos()
 
 		let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
 		
 		var animation: Animation {
-				Animation.timingCurve(
-						0.17,0.67,0.83,0.33,
-						duration: 2
-				)
+			Animation.timingCurve(
+				infos.values.first,
+				infos.values.second,
+				infos.values.third,
+				infos.values.fourth,
+				duration: Double(infos.duration)
+			)
 		}
 
 		var body: some View {
@@ -72,11 +73,18 @@ struct TimingCurveView: View {
 					}
 					.zIndex(1)
 //					.onReceive(timer) { _ in
-//							self.value = 0
-//							withAnimation(self.animation) {
-//									self.value = 1
-//							}
+//						self.value = 0
+//						withAnimation(self.animation) {
+//							self.value = 1
+//						}
 //					}
+					.onAppear(perform: {
+						if (infos.animationPlaying) {
+							withAnimation(self.animation) {
+								self.value = 1
+							}
+						}
+					 })
 					GridView(gridWidth: 12, color: Colors.grid)
 				}
 				.background(Colors.background)
@@ -90,5 +98,6 @@ struct TimingCurveView: View {
 				.background(Colors.darkGray)
 				.shadow(color: Colors.shadow, radius: 15, x: 0, y: -3)
 			}
+			.environmentObject(infos)
 		}
 }

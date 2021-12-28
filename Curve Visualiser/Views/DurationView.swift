@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DurationView: View {
-	@State private var duration: String = "1"
+	@EnvironmentObject var infos: Infos
 	
 	let spacing: CGFloat = 10
 	
@@ -25,7 +25,10 @@ struct DurationView: View {
 			.frame(width: 60, height: 28)
 			
 			VStack(spacing: spacing) {
-				TextField("Seconds", text: $duration)
+				TextField("Seconds", text: Binding(
+					get: { String(infos.duration) },
+					set: { infos.duration = Int($0) ?? 0 }
+				))
 			}.frame(width: 224)
 		}
 		.textFieldStyle(CustomTextFieldStyle())

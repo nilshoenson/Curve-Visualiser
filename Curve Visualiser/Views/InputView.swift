@@ -7,11 +7,34 @@
 
 import SwiftUI
 
+struct Input: View {
+	@State private var enteredValue : String = ""
+	@EnvironmentObject var infos: Infos
+	@Binding var value: Double
+	let label: String
+	
+	func isDisabled(str: String) -> Bool {
+		switch str {
+		case "Linear", "Ease In", "Ease Out", "Ease In Out":
+			return true
+		default:
+			return false
+		}
+	}
+	
+	var body: some View {
+		TextField("\(label)", text: Binding(
+			get: { String(value) },
+			set: { value = Double($0) ?? 0 }
+		))
+		.disabled(isDisabled(str: infos.curve.rawValue))
+		.textFieldStyle(CustomTextFieldStyle())
+		.controlSize(.large)
+	}
+}
+
 struct InputView: View {
-	@State private var first: String = ""
-	@State private var second: String = ""
-	@State private var third: String = ""
-	@State private var fourth: String = ""
+	@EnvironmentObject var infos: Infos
 	
 	let spacing: CGFloat = 10
 	
@@ -29,16 +52,14 @@ struct InputView: View {
 			
 			VStack(spacing: spacing) {
 				HStack(spacing: spacing) {
-					TextField("0.17", text: $first)
-					TextField("0.67", text: $second)
+					Input(value: $infos.values.first, label: "0.17")
+					Input(value: $infos.values.second, label: "0.67")
 				}
 				HStack(spacing: spacing) {
-					TextField("0.83", text: $third)
-					TextField("1", text: $fourth)
+					Input(value: $infos.values.third, label: "0.83")
+					Input(value: $infos.values.fourth, label: "1")
 				}
 			}.frame(width: 224)
 		}
-		.textFieldStyle(CustomTextFieldStyle())
-		.controlSize(.large)
 	}
 }
