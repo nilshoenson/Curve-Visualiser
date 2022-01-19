@@ -9,7 +9,7 @@ import Foundation
 
 final class AppState: ObservableObject {
 	@Published var curve = Curves.easeInOut
-	@Published var values = Values()
+	@Published var values = CurveValues()
 	@Published var duration = 1
 	@Published var animationPlaying = false
 	@Published var animationLooping = false
@@ -25,7 +25,7 @@ enum Curves: String, CaseIterable, Identifiable {
 	case custom = "Custom"
 }
 
-struct Values {
+struct CurveValues {
 	// cubic-bezier(0,0.6,1.0,0.4)
 	var first = 0.0
 	var second = 0.6
