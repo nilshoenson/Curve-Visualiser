@@ -8,33 +8,33 @@
 import SwiftUI
 
 struct DropdownView: View {
-	@EnvironmentObject var infos: Infos
+	@EnvironmentObject var appState: AppState
 	
 	func changeCurveValues(str: String) {
 		switch str {
 		case "Linear":
-			infos.values.first = 0.0
-			infos.values.second = 0.0
-			infos.values.third = 1.0
-			infos.values.fourth = 1.0
+			appState.values.first = 0.0
+			appState.values.second = 0.0
+			appState.values.third = 1.0
+			appState.values.fourth = 1.0
 			return
 		case "Ease In":
-			infos.values.first = 0.0
-			infos.values.second = 0.0
-			infos.values.third = 0.6
-			infos.values.fourth = 0.0
+			appState.values.first = 0.0
+			appState.values.second = 0.0
+			appState.values.third = 0.6
+			appState.values.fourth = 0.0
 			return
 		case "Ease Out":
-			infos.values.first = 0.0
-			infos.values.second = 0.0
-			infos.values.third = 0.4
-			infos.values.fourth = 1.0
+			appState.values.first = 0.0
+			appState.values.second = 0.0
+			appState.values.third = 0.4
+			appState.values.fourth = 1.0
 			return
 		case "Ease In Out":
-			infos.values.first = 0.0
-			infos.values.second = 0.6
-			infos.values.third = 1.0
-			infos.values.fourth = 0.4
+			appState.values.first = 0.0
+			appState.values.second = 0.6
+			appState.values.third = 1.0
+			appState.values.fourth = 0.4
 			return
 		default:
 			return
@@ -54,13 +54,13 @@ struct DropdownView: View {
 			.frame(width: 60, height: 28)
 			
 			VStack {
-				Picker("", selection: $infos.curve) {
+				Picker("", selection: $appState.curve) {
 					ForEach(Curves.allCases) { curve in
 						Text(curve.rawValue).tag(curve)
 					}
 				}
-				.onChange(of: infos.curve) { _ in
-					changeCurveValues(str: infos.curve.rawValue)
+				.onChange(of: appState.curve) { _ in
+					changeCurveValues(str: appState.curve.rawValue)
 				}
 				.frame(width: 232)
 				.accentColor(Colors.primary)

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-	@EnvironmentObject var infos: Infos
+	@EnvironmentObject var appState: AppState
 	
 	var body: some View {
 		VStack(spacing: 24) {
@@ -21,18 +21,20 @@ struct SettingsView: View {
 			HStack {
 				Spacer()
 				Button(action: {
-					infos.animationPlaying = true
+					appState.animationPlaying = true
+					appState.animationLooping = false
 				}, label: {
 					Text("Play Animation Once")
 				})
 				.help("Play Animation Once")
 				
 				Button(action: {
-					print("Start")
+					appState.animationLooping.toggle()
+					appState.animationPlaying = false
 				}, label: {
-					Text("Start Loop")
+					Text("\(appState.animationLooping ? "Stop" : "Start") Loop")
 				})
-				.help("Change Loop")
+				.help("\(appState.animationLooping ? "Stop" : "Start") Loop")
 				
 				Spacer()
 			}

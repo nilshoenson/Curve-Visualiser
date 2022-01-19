@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class Infos: ObservableObject {
+final class AppState: ObservableObject {
 	@Published var curve = Curves.easeInOut
 	@Published var values = Values()
 	@Published var duration = 1

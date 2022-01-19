@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DurationView: View {
-	@EnvironmentObject var infos: Infos
+	@EnvironmentObject var appState: AppState
 	
 	let spacing: CGFloat = 10
 	
@@ -26,8 +26,8 @@ struct DurationView: View {
 			
 			VStack(spacing: spacing) {
 				TextField("Seconds", text: Binding(
-					get: { String(infos.duration) },
-					set: { infos.duration = Int($0) ?? 0 }
+					get: { String(appState.duration) },
+					set: { appState.duration = Int($0) ?? 0 }
 				))
 			}.frame(width: 224)
 		}

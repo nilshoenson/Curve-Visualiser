@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CurveEditorView: View {
-		@EnvironmentObject var infos: Infos
+		@EnvironmentObject var appState: AppState
 		
 		// MARK: Shape values
 		var body: some View {
@@ -24,9 +24,9 @@ struct CurveEditorView: View {
 
 						CurveShape(
 							cp0:
-								CGPoint(x: infos.values.first, y: 1.0 - infos.values.second),
+								CGPoint(x: appState.values.first, y: 1.0 - appState.values.second),
 							cp1:
-								CGPoint(x: infos.values.third, y: 1.0 - Double(infos.values.fourth))
+								CGPoint(x: appState.values.third, y: 1.0 - Double(appState.values.fourth))
 						)
 							.stroke(Colors.primary, lineWidth: 4)
 							.frame(width: 116, height: 116)
@@ -47,17 +47,33 @@ struct CurveEditorView: View {
 
 struct TimingCurveView: View {
 		@State var value: CGFloat = 0
-		@StateObject var infos = Infos()
-
-		let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
+		@StateObject var appState = AppState()
 		
-		var animation: Animation {
+		/// Animations
+		var loopingAnimation: Animation {
+			if (appState.animationLooping) {
+				// Looping animation
+				return Animation.timingCurve(
+					appState.values.first,
+					appState.values.second,
+					appState.values.third,
+					appState.values.fourth,
+					duration: Double(appState.duration)
+			 ).repeatForever(autoreverses: false)
+			} else {
+				// Reset loop animation
+				return Animation.timingCurve(0,0,0,0,duration: 0)
+			}
+		}
+	
+		var singleAnimation: Animation {
+			// Single animation
 			Animation.timingCurve(
-				infos.values.first,
-				infos.values.second,
-				infos.values.third,
-				infos.values.fourth,
-				duration: Double(infos.duration)
+				appState.values.first,
+				appState.values.second,
+				appState.values.third,
+				appState.values.fourth,
+				duration: Double(appState.duration)
 			)
 		}
 
@@ -72,19 +88,27 @@ struct TimingCurveView: View {
 							AnimationView(value: value)
 					}
 					.zIndex(1)
-//					.onReceive(timer) { _ in
-//						self.value = 0
-//						withAnimation(self.animation) {
-//							self.value = 1
-//						}
-//					}
-					.onAppear(perform: {
-						if (infos.animationPlaying) {
-							withAnimation(self.animation) {
+					.onChange(of: appState.animationPlaying) { newValue in
+						self.value = 0
+						
+						withAnimation(self.singleAnimation){
+							self.value = 1
+							self.appState.animationPlaying = false
+						}
+					}
+					.onChange(of: appState.animationLooping) { newValue in
+						if (newValue == true) {
+							self.value = 0
+							
+							withAnimation(self.loopingAnimation) {
 								self.value = 1
 							}
+						} else {
+							withAnimation(self.loopingAnimation) {
+								self.value = 0
+							}
 						}
-					 })
+					}
 					GridView(gridWidth: 12, color: Colors.grid)
 				}
 				.background(Colors.background)
@@ -98,6 +122,6 @@ struct TimingCurveView: View {
 				.background(Colors.darkGray)
 				.shadow(color: Colors.shadow, radius: 15, x: 0, y: -3)
 			}
-			.environmentObject(infos)
+			.environmentObject(appState)
 		}
 }
