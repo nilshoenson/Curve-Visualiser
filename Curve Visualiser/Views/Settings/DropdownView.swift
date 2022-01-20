@@ -7,6 +7,32 @@
 
 import SwiftUI
 
+struct DropdownItems: View {
+	var body: some View {
+		Group {
+			Text("Linear").tag(Curves.linear)
+		}
+		
+		VStack {
+			Divider().padding(.leading)
+		}
+		
+		Group {
+			Text("Ease In").tag(Curves.easeIn)
+			Text("Ease Out").tag(Curves.easeOut)
+			Text("Ease In Out").tag(Curves.easeInOut)
+		}
+		
+		VStack {
+			Divider().padding(.leading)
+		}
+		
+		Group {
+			Text("Custom").tag(Curves.custom)
+		}
+	}
+}
+
 struct DropdownView: View {
 	@EnvironmentObject var appState: AppState
 	
@@ -55,9 +81,7 @@ struct DropdownView: View {
 			
 			VStack {
 				Picker("", selection: $appState.curve) {
-					ForEach(Curves.allCases) { curve in
-						Text(curve.rawValue).tag(curve)
-					}
+					DropdownItems()
 				}
 				.onChange(of: appState.curve) { _ in
 					changeCurveValues(str: appState.curve.rawValue)

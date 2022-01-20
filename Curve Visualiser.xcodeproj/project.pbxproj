@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CB0780472798BA06000C35FF /* TimingCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0780462798BA06000C35FF /* TimingCurveView.swift */; };
+		CB34A69B279A088D007B3428 /* Exporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB34A69A279A088D007B3428 /* Exporter.swift */; };
 		CB70BCF5277B5562006D5F83 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB70BCF4277B5562006D5F83 /* Models.swift */; };
 		CB72A2462772434F0029F8E9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB72A2452772434F0029F8E9 /* SettingsView.swift */; };
 		CB72A2482772467E0029F8E9 /* DropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB72A2472772467E0029F8E9 /* DropdownView.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		CB0780462798BA06000C35FF /* TimingCurveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimingCurveView.swift; sourceTree = "<group>"; };
+		CB34A69A279A088D007B3428 /* Exporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exporter.swift; sourceTree = "<group>"; };
 		CB70BCF4277B5562006D5F83 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		CB72A2452772434F0029F8E9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		CB72A2472772467E0029F8E9 /* DropdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownView.swift; sourceTree = "<group>"; };
@@ -86,6 +88,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		CB34A699279A0876007B3428 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CB34A69A279A088D007B3428 /* Exporter.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		CB8D8018277127D500383B89 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +115,7 @@
 		CB8D8023277127D500383B89 /* Curve Visualiser */ = {
 			isa = PBXGroup;
 			children = (
+				CB34A699279A0876007B3428 /* Utilities */,
 				CB8D8024277127D500383B89 /* Curve_VisualiserApp.swift */,
 				CB8D803A27712CDE00383B89 /* Helpers */,
 				CB8D803727712CA200383B89 /* Views */,
@@ -222,6 +233,7 @@
 				CBE9F75C277293C00061919C /* CustomStyles.swift in Sources */,
 				CB8D803C27713DD600383B89 /* Shapes.swift in Sources */,
 				CB72A2482772467E0029F8E9 /* DropdownView.swift in Sources */,
+				CB34A69B279A088D007B3428 /* Exporter.swift in Sources */,
 				CB8D8025277127D500383B89 /* Curve_VisualiserApp.swift in Sources */,
 				CBE9F75E277293DA0061919C /* DurationView.swift in Sources */,
 				CB8D8040277148E500383B89 /* AnimationView.swift in Sources */,

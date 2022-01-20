@@ -10,7 +10,7 @@ import Foundation
 final class AppState: ObservableObject {
 	@Published var curve = Curves.easeInOut
 	@Published var values = CurveValues()
-	@Published var duration = 1
+	@Published var duration = 1.0
 	@Published var animationPlaying = false
 	@Published var animationLooping = false
 }

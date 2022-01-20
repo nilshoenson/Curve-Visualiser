@@ -27,7 +27,7 @@ struct DurationView: View {
 			VStack(spacing: spacing) {
 				TextField("Seconds", text: Binding(
 					get: { String(appState.duration) },
-					set: { appState.duration = Int($0) ?? 0 }
+					set: { appState.duration = Double($0) ?? 0.0 }
 				))
 			}.frame(width: 224)
 		}
