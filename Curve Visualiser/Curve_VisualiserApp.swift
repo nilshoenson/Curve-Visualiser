@@ -28,7 +28,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 			window.title = ""
 			window.isMovableByWindowBackground = true
 			window.isReleasedWhenClosed = false
-			window.contentView = NSHostingView(rootView: AboutView(bundle: Bundle.main))
+			window.contentView = NSHostingView(rootView: AboutView(bundle: Bundle.main, websiteURL: "https://nilshoenson.com/"))
 			window.center()
 			
 			aboutBoxWindowController = NSWindowController(window: window)
@@ -44,7 +44,7 @@ struct Curve_VisualiserApp: App {
     var body: some Scene {
 			WindowGroup {
 				TimingCurveView()
-					.frame(width: 464, height: 590)
+					.frame(width: 440, height: 590)
 					.preferredColorScheme(.dark)
 			}
 			.commands {

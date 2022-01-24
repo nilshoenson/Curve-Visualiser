@@ -15,6 +15,7 @@ public class Colors {
 	
 	static let darkGray: Color = Color(red: 0.20, green: 0.20, blue: 0.20)
 	static let secondary: Color = Color(red: 0.33, green: 0.33, blue: 0.33)
+	static let text: Color = Color(red: 0.5, green: 0.5, blue: 0.5)
 	
 	static let stroke: Color = Color(red: 1.00, green: 1.00, blue: 1.00, opacity: 0.1)
 	static let shadow: Color = Color(red: 0, green: 0, blue: 0, opacity: 0.25)

@@ -68,7 +68,7 @@ struct DropdownView: View {
 	}
 			
 	var body: some View {
-		HStack(alignment: .center, spacing: 2) {
+		HStack(alignment: .center, spacing: 4) {
 			HStack {
 				Spacer()
 				Text("Curve")
@@ -86,7 +86,7 @@ struct DropdownView: View {
 				.onChange(of: appState.curve) { _ in
 					changeCurveValues(str: appState.curve.rawValue)
 				}
-				.frame(width: 232)
+				.frame(width: 234)
 				.accentColor(Colors.primary)
 				.clipped() 
 			}

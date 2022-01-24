@@ -24,10 +24,13 @@ struct Uberabout {
 // MARK: - About View
 struct AboutView: View {
 		let bundle: Bundle
-		let gradient = Gradient(colors: [Colors.primaryGradientStart, Colors.primaryGradientStop])
+		var websiteURL: String = ""
 		
 		private let windowWidth: CGFloat = Uberabout.windowWidth
 		private let windowHeight: CGFloat = Uberabout.windowHeight
+		private let gradient = Gradient(colors: [Colors.primaryGradientStart, Colors.primaryGradientStop])
+	
+		@State private var iconHover: Bool = false
 		
 		var body: some View {
 			VStack(alignment: .center, spacing: 0) {
@@ -48,7 +51,20 @@ struct AboutView: View {
 								Image(nsImage: appIcon)
 							}
 						}
+						.onHover(perform: {state in
+							// Animation on hover
+							let ani = Animation.easeInOut(duration: 0.2)
+							withAnimation(ani, {
+								self.iconHover = state
+							})
+						})
+						.onTapGesture(perform: {
+							if let url = URL(string: self.websiteURL) {
+								NSWorkspace.shared.open(url)
+							}
+						})
 					}
+					.scaleEffect(self.iconHover ? 1.03 : 1.0)
 					.frame(width: 96.0, height: 96.0)
 					.padding([.bottom], 32.0)
 					.padding([.top], 40.0)
@@ -58,6 +74,7 @@ struct AboutView: View {
 						.font(.system(size: 25))
 						.fontWeight(.bold)
 						.padding([.bottom], 6.0)
+						.help(Bundle.appName)
 					
 					// App Version & Build
 					HStack(spacing: 4.0) {
@@ -67,13 +84,15 @@ struct AboutView: View {
 							.fontWeight(.medium)
 							.foregroundColor(Colors.primary)
 							.padding([.bottom], 48.0)
+							.help("Version number")
 					}
 				
 					Text(Bundle.copyrightHumanReadable)
 						.font(.system(size: 12))
-						.foregroundColor(Colors.secondary)
+						.foregroundColor(Colors.text)
 						.frame(maxWidth: 188, alignment: .center)
 						.multilineTextAlignment(.center)
+						.help(Bundle.copyrightHumanReadable)
 				
 					Spacer()
 				}
