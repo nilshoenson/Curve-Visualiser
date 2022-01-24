@@ -10,12 +10,15 @@ import SwiftUI
 struct SettingsView: View {
 	@EnvironmentObject var appState: AppState
 	
+	@Binding var text: String
+	
 	var body: some View {
 		VStack(spacing: 24) {
 			VStack(alignment: .center, spacing: 20) {
 				DropdownView()
 				InputView()
-				DurationView()
+				
+				MaterialTextField(placeholder: "Sjakie", text: $text)
 			}
 			
 			HStack {

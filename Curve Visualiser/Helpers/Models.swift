@@ -13,6 +13,8 @@ final class AppState: ObservableObject {
 	@Published var duration = 1.0
 	@Published var animationPlaying = false
 	@Published var animationLooping = false
+	
+	@Published var test = "sjakie"
 }
 
 enum Curves: String, CaseIterable, Identifiable {

@@ -76,7 +76,7 @@ struct TimingCurveView: View {
 				.background(Colors.background)
 				
 				HStack {
-					SettingsView()
+					SettingsView(text: $appState.test)
 				}
 				.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
 				.padding(24)
