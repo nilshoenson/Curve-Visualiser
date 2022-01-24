@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CB0780472798BA06000C35FF /* TimingCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0780462798BA06000C35FF /* TimingCurveView.swift */; };
 		CB34A69B279A088D007B3428 /* Exporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB34A69A279A088D007B3428 /* Exporter.swift */; };
+		CB406C7D279F1D0300F0D143 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB406C7C279F1D0300F0D143 /* AboutView.swift */; };
 		CB70BCF5277B5562006D5F83 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB70BCF4277B5562006D5F83 /* Models.swift */; };
 		CB72A2462772434F0029F8E9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB72A2452772434F0029F8E9 /* SettingsView.swift */; };
 		CB72A2482772467E0029F8E9 /* DropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB72A2472772467E0029F8E9 /* DropdownView.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		CB0780462798BA06000C35FF /* TimingCurveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimingCurveView.swift; sourceTree = "<group>"; };
 		CB34A69A279A088D007B3428 /* Exporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exporter.swift; sourceTree = "<group>"; };
+		CB406C7C279F1D0300F0D143 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		CB70BCF4277B5562006D5F83 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		CB72A2452772434F0029F8E9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		CB72A2472772467E0029F8E9 /* DropdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownView.swift; sourceTree = "<group>"; };
@@ -96,6 +98,14 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		CB406C7B279F1CE500F0D143 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				CB406C7C279F1D0300F0D143 /* AboutView.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
 		CB8D8018277127D500383B89 = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +147,7 @@
 		CB8D803727712CA200383B89 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CB406C7B279F1CE500F0D143 /* About */,
 				CB0780442798B8A7000C35FF /* Canvas */,
 				CB0780462798BA06000C35FF /* TimingCurveView.swift */,
 				CB0780432798B88D000C35FF /* Misc */,
@@ -229,6 +240,7 @@
 				CB0780472798BA06000C35FF /* TimingCurveView.swift in Sources */,
 				CB8D8034277128C600383B89 /* CurveEditorView.swift in Sources */,
 				CB8D803927712CD200383B89 /* Colors.swift in Sources */,
+				CB406C7D279F1D0300F0D143 /* AboutView.swift in Sources */,
 				CB72A2462772434F0029F8E9 /* SettingsView.swift in Sources */,
 				CBE9F75C277293C00061919C /* CustomStyles.swift in Sources */,
 				CB8D803C27713DD600383B89 /* Shapes.swift in Sources */,
@@ -376,12 +388,12 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Nils Hoenson. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nilshoenson.Curve-Visualiser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -403,12 +415,12 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Nils Hoenson. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nilshoenson.Curve-Visualiser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

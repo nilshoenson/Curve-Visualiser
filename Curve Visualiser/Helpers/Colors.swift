@@ -10,6 +10,8 @@ import SwiftUI
 
 public class Colors {
 	static let primary: Color = Color(red: 0.69, green: 0.32, blue: 0.87)
+	static let primaryGradientStart: Color = Color(red: 0.69, green: 0.32, blue: 0.87, opacity: 0.15)
+	static let primaryGradientStop: Color = Color(red: 0.69, green: 0.32, blue: 0.87, opacity: 0)
 	
 	static let darkGray: Color = Color(red: 0.20, green: 0.20, blue: 0.20)
 	static let secondary: Color = Color(red: 0.33, green: 0.33, blue: 0.33)
