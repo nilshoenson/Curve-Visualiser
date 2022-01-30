@@ -17,7 +17,7 @@ fileprivate let logger = Logger(subsystem: "About", category: "")
 
 struct Uberabout {
 	static let windowWidth: CGFloat = 268.0
-	static let windowHeight: CGFloat = 316.0
+	static let windowHeight: CGFloat = 288.0
 }
 
 
@@ -47,9 +47,9 @@ struct AboutView: View {
 							.frame(width: self.windowWidth, height: 200)
 						
 						Group {
-							if let appIcon = NSApp.applicationIconImage {
-								Image(nsImage: appIcon)
-							}
+							Image("AppIconAbout")
+								.shadow(color: Color.black.opacity(0.1), radius: 5, y: 2)
+								.shadow(color: Color(red: 0.68, green: 0.32, blue: 0.87, opacity: 0.34), radius: 20, y: 12)
 						}
 						.onHover(perform: {state in
 							// Animation on hover
@@ -66,14 +66,14 @@ struct AboutView: View {
 					}
 					.scaleEffect(self.iconHover ? 1.03 : 1.0)
 					.frame(width: 96.0, height: 96.0)
-					.padding([.bottom], 32.0)
-					.padding([.top], 40.0)
+					.padding([.bottom], 24.0)
+					.padding([.top], 32.0)
 					
 					// App Name
 					Text(Bundle.appName)
 						.font(.system(size: 25))
-						.fontWeight(.bold)
-						.padding([.bottom], 6.0)
+						.fontWeight(.semibold)
+						.padding([.bottom], 8.0)
 						.help(Bundle.appName)
 					
 					// App Version & Build
@@ -81,9 +81,9 @@ struct AboutView: View {
 						let versionSuffix = NSLocalizedString("Version",  bundle: self.bundle, comment: "")
 						Text("\(versionSuffix)\u{00a0}\(Bundle.appVersionMarketing)")
 							.font(.system(size: 14))
-							.fontWeight(.medium)
+							.fontWeight(.regular)
 							.foregroundColor(Colors.primary)
-							.padding([.bottom], 48.0)
+							.padding([.bottom], 32.0)
 							.help("Version number")
 					}
 				
