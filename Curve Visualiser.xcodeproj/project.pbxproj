@@ -46,6 +46,7 @@
 		CB8D803B27713DD600383B89 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		CB8D803D277141D000383B89 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		CB8D803F277148E500383B89 /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
+		CBD33D2927A9C6C70095DF84 /* Curve-Visualiser-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Curve-Visualiser-Info.plist"; sourceTree = SOURCE_ROOT; };
 		CBE9F75B277293C00061919C /* CustomStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStyles.swift; sourceTree = "<group>"; };
 		CBE9F75D277293DA0061919C /* DurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +126,7 @@
 		CB8D8023277127D500383B89 /* Curve Visualiser */ = {
 			isa = PBXGroup;
 			children = (
+				CBD33D2927A9C6C70095DF84 /* Curve-Visualiser-Info.plist */,
 				CB34A699279A0876007B3428 /* Utilities */,
 				CB8D8024277127D500383B89 /* Curve_VisualiserApp.swift */,
 				CB8D803A27712CDE00383B89 /* Helpers */,
@@ -388,6 +390,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Curve-Visualiser-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Nils Hoenson. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -416,6 +420,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Curve-Visualiser-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 Nils Hoenson. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
