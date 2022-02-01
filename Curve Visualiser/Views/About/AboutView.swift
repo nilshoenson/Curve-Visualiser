@@ -83,9 +83,15 @@ struct AboutView: View {
 							.font(.system(size: 14))
 							.fontWeight(.regular)
 							.foregroundColor(Colors.primary)
-							.padding([.bottom], 40.0)
 							.help("Version number")
+						
+						Text("(\(Bundle.appVersionBuild))")
+							.font(Font.body.monospacedDigit().weight(.regular))
+							.foregroundColor(Colors.primary)
+							.opacity(0.7)
+							.help("Build number")
 					}
+					.padding([.bottom], 40.0)
 				
 					Text(Bundle.copyrightHumanReadable)
 						.font(.system(size: 12))
@@ -148,6 +154,16 @@ extension Bundle {
 						return ""
 				}
 		}
+	
+		static var appVersionBuild: String {
+					let bundleKey = kCFBundleVersionKey as String
+					if let version = Bundle.main.object(forInfoDictionaryKey: bundleKey) as? String {
+							return version
+					} else {
+							logger.debug("Unable to determine 'appVersionBuild'")
+							return "0"
+					}
+			}
 
 		static var copyrightHumanReadable: String {
 				if let name = Bundle.main.infoDictionary?["NSHumanReadableCopyright"] as? String {
