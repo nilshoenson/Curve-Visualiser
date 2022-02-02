@@ -24,7 +24,7 @@ struct SettingsView: View {
 					appState.animationPlaying = true
 					appState.animationLooping = false
 				}, label: {
-					Text("Play Animation Once")
+					Label("Play", systemImage: "play.fill")
 				})
 				.help("Play Animation Once")
 				
@@ -32,9 +32,12 @@ struct SettingsView: View {
 					appState.animationLooping.toggle()
 					appState.animationPlaying = false
 				}, label: {
-					Text("\(appState.animationLooping ? "Stop" : "Start") Loop")
+					Label(
+						"\(appState.animationLooping ? "Stop" : "Start") Loop",
+						systemImage: appState.animationLooping ? "stop.fill" : "repeat"
+					)
 				})
-				.help("\(appState.animationLooping ? "Stop" : "Start") Loop")
+				.help("\(appState.animationLooping ? "Stop" : "Start") Animation Loop")
 				
 				Spacer()
 			}

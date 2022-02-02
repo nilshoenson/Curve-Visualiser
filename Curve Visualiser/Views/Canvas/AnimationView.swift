@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct AnimationView: View {
+struct AnimationView: View {	
 		var value: CGFloat
+		var currentAnimation: Animation?
 	
     var body: some View {
 			ZStack(alignment: .center) {
@@ -19,6 +20,7 @@ struct AnimationView: View {
 						.frame(width: 24, height: 24)
 						.foregroundColor(Colors.primary)
 						.accessibilityLabel("Animation")
+						.animation(currentAnimation, value: self.value)
 				}
 				Line()
 					.stroke(style: StrokeStyle(lineWidth: 2, dash: [5]))
