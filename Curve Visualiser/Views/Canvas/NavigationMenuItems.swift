@@ -76,6 +76,17 @@ struct NavigationMenuItems: View {
 							Text("JSON")
 						}
 					}
+					
+					VStack {
+						Divider()
+					}
+					
+					Button(action: {
+						NSApplication.shared.terminate(self)
+					}) {
+						Text("Quit")
+					}
+					.keyboardShortcut("q", modifiers: [.command])
 				}
 		}
 }
