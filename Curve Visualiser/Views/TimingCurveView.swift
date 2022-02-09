@@ -90,9 +90,10 @@ struct TimingCurveView: View {
 							Menu {
 								NavigationMenuItems()
 							} label: {
-								Image(systemName: "gearshape.fill")
+								Image("Cog")
+									.frame(width: 30, height: 16)
 							}
-							.menuStyle(BorderlessButtonMenuStyle(showsMenuIndicator: true))
+							.menuStyle(BorderlessButtonMenuStyle(showsMenuIndicator: false))
 							.fixedSize()
 						}
 						.frame(width: 48, height: 28)
