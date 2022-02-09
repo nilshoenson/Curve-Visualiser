@@ -25,6 +25,8 @@
 		CB8D8040277148E500383B89 /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D803F277148E500383B89 /* AnimationView.swift */; };
 		CBE9F75C277293C00061919C /* CustomStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE9F75B277293C00061919C /* CustomStyles.swift */; };
 		CBE9F75E277293DA0061919C /* DurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE9F75D277293DA0061919C /* DurationView.swift */; };
+		CBF8D1F727B458EC000C6013 /* CircleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF8D1F627B458EC000C6013 /* CircleStyle.swift */; };
+		CBF8D1F927B45D7D000C6013 /* NavigationMenuItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF8D1F827B45D7D000C6013 /* NavigationMenuItems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		CBD33D2927A9C6C70095DF84 /* Curve-Visualiser-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Curve-Visualiser-Info.plist"; sourceTree = SOURCE_ROOT; };
 		CBE9F75B277293C00061919C /* CustomStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStyles.swift; sourceTree = "<group>"; };
 		CBE9F75D277293DA0061919C /* DurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationView.swift; sourceTree = "<group>"; };
+		CBF8D1F627B458EC000C6013 /* CircleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleStyle.swift; sourceTree = "<group>"; };
+		CBF8D1F827B45D7D000C6013 /* NavigationMenuItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMenuItems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 				CB8D803F277148E500383B89 /* AnimationView.swift */,
 				CB8D803D277141D000383B89 /* GridView.swift */,
 				CB8D8033277128C600383B89 /* CurveEditorView.swift */,
+				CBF8D1F827B45D7D000C6013 /* NavigationMenuItems.swift */,
 			);
 			path = Canvas;
 			sourceTree = "<group>";
@@ -161,12 +166,21 @@
 		CB8D803A27712CDE00383B89 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				CBF8D1F527B458CF000C6013 /* Styles */,
 				CB70BCF4277B5562006D5F83 /* Models.swift */,
 				CB8D803827712CD200383B89 /* Colors.swift */,
 				CBE9F75B277293C00061919C /* CustomStyles.swift */,
 				CB8D8035277128ED00383B89 /* GeometryExtensions.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		CBF8D1F527B458CF000C6013 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				CBF8D1F627B458EC000C6013 /* CircleStyle.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,7 +256,9 @@
 				CB0780472798BA06000C35FF /* TimingCurveView.swift in Sources */,
 				CB8D8034277128C600383B89 /* CurveEditorView.swift in Sources */,
 				CB8D803927712CD200383B89 /* Colors.swift in Sources */,
+				CBF8D1F927B45D7D000C6013 /* NavigationMenuItems.swift in Sources */,
 				CB406C7D279F1D0300F0D143 /* AboutView.swift in Sources */,
+				CBF8D1F727B458EC000C6013 /* CircleStyle.swift in Sources */,
 				CB72A2462772434F0029F8E9 /* SettingsView.swift in Sources */,
 				CBE9F75C277293C00061919C /* CustomStyles.swift in Sources */,
 				CB8D803C27713DD600383B89 /* Shapes.swift in Sources */,

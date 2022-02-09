@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+struct ButtonThatLookLikeNothingStyle: ButtonStyle {
+	func makeBody(configuration: Self.Configuration) -> some View {
+		configuration.label
+			.font(.body)
+			.padding(.trailing, 3)
+			.foregroundColor(Color(NSColor.secondaryLabelColor))
+			.background(Color(NSColor.clear))
+			.border(Color(NSColor.controlShadowColor), width: 0)
+	}
+}
+
 struct TimingCurveView: View {
 		@State var value: CGFloat = 0
 		@ObservedObject var appState: AppState
@@ -72,6 +83,27 @@ struct TimingCurveView: View {
 						}
 					}
 					GridView(gridWidth: 12, color: Colors.grid)
+					
+					HStack {
+						Spacer()
+						HStack {
+							Menu {
+								NavigationMenuItems()
+							} label: {
+								Image(systemName: "gearshape.fill")
+							}
+							.menuStyle(BorderlessButtonMenuStyle(showsMenuIndicator: true))
+							.fixedSize()
+						}
+						.frame(width: 48, height: 28)
+						.background(Colors.darkGray)
+						.cornerRadius(24)
+						.overlay(
+							RoundedRectangle(cornerRadius: 24)
+								.stroke(Color.white.opacity(0.08), lineWidth: 1)
+						)
+						.offset(x: -12, y: 12)
+					}
 				}
 				.background(Colors.background)
 				

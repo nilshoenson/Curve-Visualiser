@@ -83,37 +83,3 @@ struct Curve_VisualiserApp: App {
     }
 }
 
-// MARK: - Menu for code export to use later on
-//CommandMenu("Export") {
-//	// Export to SwiftUI
-//	Button(action: {
-//		pasteboard.clearContents()
-//
-//		let contents = "\(Exporter.toSwiftUi(values: appState.values, duration: appState.duration))"
-//		pasteboard.setString(contents, forType: .string)
-//	}) {
-//		Text("SwiftUI...")
-//	}
-//	.keyboardShortcut("t", modifiers: [.command, .shift])
-//
-//	// Export to CSS
-//	Button(action: {
-//		pasteboard.clearContents()
-//
-//		let contents = "\(Exporter.toCSS(values: appState.values, duration: appState.duration))"
-//		pasteboard.setString(contents, forType: .string)
-//	}) {
-//		Text("CSS...")
-//	}
-//	.keyboardShortcut("y", modifiers: [.command, .shift])
-// Export to JSON
-//Button(action: {
-//	pasteboard.clearContents()
-//
-//	let contents = "\(Exporter.toJSON(values: appState.values, duration: appState.duration))"
-//	pasteboard.setString(contents, forType: .string)
-//}) {
-//	Text("JSON...")
-//}
-//.keyboardShortcut("j", modifiers: [.command, .shift])
-//}
