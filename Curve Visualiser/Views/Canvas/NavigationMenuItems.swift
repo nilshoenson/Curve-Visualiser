@@ -32,30 +32,8 @@ struct NavigationMenuItems: View {
 		@EnvironmentObject var appState: AppState
 	
 		var body: some View {
-				Group {
-					Button("Lorem Ipsum...") {
-						print("Lorem Ipsum...")
-					}
-
-					Button("Dolor sit amet...") {
-						print("Dolor sit amet...")
-					}
-					
-					VStack {
-						Divider()
-					}
-					
-					Menu("Export Animation to...") {
-						// Export to SwiftUI
-						Button(action: {
-							pasteboard.clearContents()
-
-							let contents = "\(Exporter.toSwiftUi(values: appState.values, duration: appState.duration))"
-							pasteboard.setString(contents, forType: .string)
-						}) {
-							Text("SwiftUI")
-						}
-						
+				Group {					
+					Menu("Copy Animation as...") {
 						// Export to CSS
 						Button(action: {
 							pasteboard.clearContents()
@@ -63,7 +41,33 @@ struct NavigationMenuItems: View {
 							let contents = "\(Exporter.toCSS(values: appState.values, duration: appState.duration))"
 							pasteboard.setString(contents, forType: .string)
 						}) {
+							Image("CSS")
+								.frame(width: 16, height: 16)
 							Text("CSS")
+						}
+						
+						// Export to Framer Motion
+						Button(action: {
+							pasteboard.clearContents()
+
+							let contents = "\(Exporter.toFramerMotion(values: appState.values, duration: appState.duration))"
+							pasteboard.setString(contents, forType: .string)
+						}) {
+							Image("Framer")
+								.frame(width: 16, height: 16)
+							Text("Framer Motion")
+						}
+						
+						// Export to JavaScript
+						Button(action: {
+							pasteboard.clearContents()
+
+							let contents = "\(Exporter.toJavascript(values: appState.values, duration: appState.duration))"
+							pasteboard.setString(contents, forType: .string)
+						}) {
+							Image("Javascript")
+								.frame(width: 16, height: 16)
+							Text("JavaScript")
 						}
 						
 						// Export to JSON
@@ -73,7 +77,34 @@ struct NavigationMenuItems: View {
 							let contents = "\(Exporter.toJSON(values: appState.values, duration: appState.duration))"
 							pasteboard.setString(contents, forType: .string)
 						}) {
+							Image("Json")
+								.frame(width: 16, height: 16)
 							Text("JSON")
+						}
+						
+						// Export to SwiftUI
+						Button(action: {
+							pasteboard.clearContents()
+
+							let contents = "\(Exporter.toSwiftUi(values: appState.values, duration: appState.duration))"
+							pasteboard.setString(contents, forType: .string)
+						}) {
+							Image(systemName: "swift")
+							Text("SwiftUI")
+						}
+						
+						VStack {
+							Divider()
+						}
+						
+						// Export to Text
+						Button(action: {
+							pasteboard.clearContents()
+
+							let contents = "\(Exporter.toText(values: appState.values, duration: appState.duration))"
+							pasteboard.setString(contents, forType: .string)
+						}) {
+							Text("Copy Text")
 						}
 					}
 					
