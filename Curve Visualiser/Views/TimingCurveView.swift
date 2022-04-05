@@ -62,6 +62,9 @@ struct TimingCurveView: View {
 								value: value,
 								currentAnimation: appState.animationPlaying ? singleAnimation : loopingAnimation
 							)
+							.padding(.leading, 20)
+							.padding(.trailing, 20)
+							.padding(.bottom, 20)
 					}
 					.zIndex(1)
 					.onChange(of: appState.animationPlaying) { newValue in

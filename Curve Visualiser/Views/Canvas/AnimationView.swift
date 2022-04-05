@@ -28,8 +28,16 @@ struct AnimationView: View {
 					.foregroundColor(Colors.secondary)
 					.zIndex(-1)
 			}
-			.padding(20)
-			.frame(height: 64)
-			.overlay(Rectangle().frame(width: nil, height: 1, alignment: .top).foregroundColor(Colors.darkGray), alignment: .top)
+			.padding(6)
+			.frame(height: 36)
+			.background(Colors.darkGray)
+			.overlay(
+				RoundedRectangle(cornerRadius: 20)
+					.stroke(Colors.stroke, lineWidth: 1)
+			)
+			.shadow(color: Colors.shadow, radius: 14, x: 0, y: 4)
+			.cornerRadius(20)
     }
 }
+
+

@@ -14,6 +14,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 			window.setFrameAutosaveName("Curve Visualiser")
 			window.makeKeyAndOrderFront(nil)
 			window.backgroundColor = NSColor.clear
+			window.title = ("Curve Visualiser")
 		}
 		
 		NSWindow.allowsAutomaticWindowTabbing = false
